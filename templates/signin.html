@@ -2,8 +2,24 @@
 
 {% block body %}
 <div class ="jumbotron text-center">
-  <h1>SIGNIN</h1>
+  <h1>SIGN IN</h1>
   <p class = "lead">Please enter the necessary credentials in order to
   log in to the account</p>
+
+  <p class = "lead">Or use this same page and textboxes to create
+    a new account</p>
 </div>
+
+<form action="action_page.php">
+ <div class="container">
+   <label for="uname"><b>Username</b></label>
+   <input type="text" placeholder="Enter Username" name="uname" required>
+
+   <label for="psw"><b>Password</b></label>
+   <input type="password" placeholder="Enter Password" name="psw" required>
+
+   <button type="submit">Login</button>
+ </div>
+</form>
+
 {% endblock body %}
