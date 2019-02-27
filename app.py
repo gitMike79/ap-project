@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -6,9 +6,16 @@ app = Flask(__name__)
 def index():
     return render_template('home.html')
 
-@app.route('/signin')
+@app.route('/signin', methods=['GET', 'POST'])
 def signin():
-    return render_template('signin.html')
+    error = None
+    if request.method == 'POST':
+        if (request.form.get("username",False) != 'admin' or
+request.form.get("password", False) != 'admin'):
+            error = 'Invalid Credentials. Please try again'
+        else:
+            return redirect(url_for('home'))
+    return render_template('signin.html', error=error)
 
 @app.route('/about')
 def about():
@@ -16,3 +23,4 @@ def about():
 
 if __name__== '__main__':
     app.run(debug=True)
+
