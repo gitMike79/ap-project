@@ -18,12 +18,12 @@ class logIn:
                   " or click \'here\' to try again.")
             return False
 
-    def try_again(self):                      #todo Michael this is front end stuff. If the user click on the
-        self.find_file()                      #'here' button to try again this method should execute
+    def try_again(self):
+        self.find_file()
 
     def red_create(self):
-        print("\n")                           #todo Same thing here bro. If the user clicks on the second 'here'
-        self.newUser = CreateAccount()        #button that I want you to create, this method should run
+        print("\n")
+        self.newUser = CreateAccount()
         self.newUser.fillInfo()
         self.newUser.signUp()
 
@@ -49,5 +49,5 @@ if __name__ == "__main__":
     if test.find_file() == True:
         test.authenticate_password()
     else:
-        test.try_again()                          #todo elif-else here for userclick depending if he clicks
-        test.red_create()                         #on try again or clicks on create an account
+        test.try_again()
+        test.red_create()                         
